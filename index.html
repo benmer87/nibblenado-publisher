@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Nibblenado Publisher — Authorization</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  body { font-family: -apple-system, Segoe UI, Arial, sans-serif; max-width: 600px; margin: 60px auto; padding: 0 20px; line-height: 1.6; color: #222; text-align: center; }
+  code { display: block; background: #f2f2f2; padding: 14px; border-radius: 6px; word-break: break-all; margin: 20px 0; font-size: 0.95em; }
+  button { padding: 8px 16px; cursor: pointer; }
+</style>
+</head>
+<body>
+<h1>Authorization complete</h1>
+<p>Copy this code back into the terminal:</p>
+<code id="code">(reading URL...)</code>
+<button onclick="copyCode()">Copy code</button>
+<p id="status"></p>
+
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const code = params.get("code");
+  const error = params.get("error");
+  const el = document.getElementById("code");
+
+  if (code) {
+    el.textContent = code;
+  } else if (error) {
+    el.textContent = "Error: " + error + " — " + (params.get("error_description") || "");
+  } else {
+    el.textContent = "No code found in URL.";
+  }
+
+  function copyCode() {
+    navigator.clipboard.writeText(el.textContent);
+    document.getElementById("status").textContent = "Copied.";
+  }
+</script>
+</body>
+</html>
