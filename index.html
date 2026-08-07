@@ -2,39 +2,31 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Nibblenado Publisher — Authorization</title>
+<title>Nibblenado Publisher</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-  body { font-family: -apple-system, Segoe UI, Arial, sans-serif; max-width: 600px; margin: 60px auto; padding: 0 20px; line-height: 1.6; color: #222; text-align: center; }
-  code { display: block; background: #f2f2f2; padding: 14px; border-radius: 6px; word-break: break-all; margin: 20px 0; font-size: 0.95em; }
-  button { padding: 8px 16px; cursor: pointer; }
+  body { font-family: -apple-system, Segoe UI, Arial, sans-serif; max-width: 720px; margin: 40px auto; padding: 0 20px; line-height: 1.6; color: #222; }
+  h1 { font-size: 1.6em; }
+  h2 { font-size: 1.2em; margin-top: 1.8em; }
+  a { color: #0a5; }
 </style>
 </head>
 <body>
-<h1>Authorization complete</h1>
-<p>Copy this code back into the terminal:</p>
-<code id="code">(reading URL...)</code>
-<button onclick="copyCode()">Copy code</button>
-<p id="status"></p>
+<h1>Nibblenado Publisher</h1>
+<p>Nibblenado Publisher is a personal, single-user publishing tool that lets the
+developer of the <strong>Nibblenado</strong> TikTok/YouTube channel upload their
+own original short-form animal videos to their own TikTok account via TikTok's
+Content Posting API. It is not a public product and is not offered to any
+third party.</p>
 
-<script>
-  const params = new URLSearchParams(window.location.search);
-  const code = params.get("code");
-  const error = params.get("error");
-  const el = document.getElementById("code");
+<h2>Links</h2>
+<p>
+  <a href="privacy.html">Privacy Policy</a><br>
+  <a href="terms.html">Terms of Service</a>
+</p>
 
-  if (code) {
-    el.textContent = code;
-  } else if (error) {
-    el.textContent = "Error: " + error + " — " + (params.get("error_description") || "");
-  } else {
-    el.textContent = "No code found in URL.";
-  }
-
-  function copyCode() {
-    navigator.clipboard.writeText(el.textContent);
-    document.getElementById("status").textContent = "Copied.";
-  }
-</script>
+<h2>Contact</h2>
+<p>Questions about this app can be sent to
+<a href="mailto:mercierbenjamin87@gmail.com">mercierbenjamin87@gmail.com</a>.</p>
 </body>
 </html>
